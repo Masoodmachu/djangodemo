@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Orders
+{% endblock %}
+
+{% block content %}
+
+<div class="container border border-3 border-warning px-5 pb-3 mt-5">
+    <h3 class="my-3 text-center">Name Of Customer: <span style="color:lightgreen;">{{u}}</span></h3>
+    {% for i in o %}
+
+<!--        <div class="row border border-3 border-success mt-2 p-5">-->
+            <div class="row  mt-2 p-5">
+            <div class="col-sm-3">
+
+                 <img src="{{i.product.image.url}}" height="240px" width="200px" style="float:left;">
+            </div>
+
+       <div class="col-sm-6">
+        <h4 style="color:red;">PRODUCT NAME: {{i.product.name}}</h4>
+        <h5 class="text-warning">PRODUCT PRICE: {{i.product.price}}</h5>
+        <h5 class="text-success">ADDRESS: {{i.address}}</h5>
+        <h5>PHONE: {{i.phone}}</h5>
+        <h5>NO-of-ITEMS: {{i.no_of_items}}</h5>
+        <h5>ORDERED ON: {{i.ordered_date}}</h5>
+        <h5 class="fst-italic">DELIVERY STATUS: {{i.delivery_status}}</h5>
+           </div>
+   </div>
+        {% endfor %}
+
+
+
+</div>
+
+{% endblock %}

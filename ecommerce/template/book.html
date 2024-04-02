@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+<div class="container mt-5">
+<img src="{{c.image.url}}" width="100%" height="600px">
+<!--<img src="{% static 'images/ebanner.jpg' %}" width="100%" height="600px">-->
+
+</div>
+<div class="container mt-5">
+    <h2 style="text-decoration:underline;text-align:center;"><u>{{c.name}}</u></h2>
+<!--    <p style=" color:red;text-align:center;margin-top:15px;">{{c.desc}}</p>-->
+</div>
+
+    <div class="container-fluid">
+        <div class="row mt-2 pe-4">
+        {% for i in b %}
+            <div class="col-sm-3">
+
+                <div class="card mt-3 mt-5 ms-2 pb-3 bg-dark " style="width: 28rem; " >
+                  <img src="{{i.image.url}}" class="card-img-top" alt="..." height="347px" width="286px" >
+                  <div class="card-body" >
+                    <h5 class="card-title text-center text-danger">{{i.name}}</h5>
+                    <p class="card-text text-info " style="height:150px;">{{i.desc}}</p>
+                      <center>
+                    <a href="{% url 'shop:products' i.id %}" class="btn btn-primary mt-3 ">Buy Now</a>
+                      </center>
+                  </div>
+                </div>
+
+            </div>
+            {% endfor %}
+        </div>
+
+    </div>
+
+{% endblock %}
